@@ -1,4 +1,4 @@
-# Flink-Kafka-to-cassandra-app
+# Flink-Kafka-to-cassandra-app-with-scala
 
 
 A basic template of integrating Flink streaming with Kafka and CassandraDB using scala as a language.
