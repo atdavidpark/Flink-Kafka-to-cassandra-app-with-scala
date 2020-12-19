@@ -21,9 +21,8 @@ class CassandraService {
     createTypeInformation[(String, Option[Long], Option[Long])]
 
     //Creating car data to sink into cassandraDB.
-    val sinkCarDataStream = sinkCarStream.map(car => (car.Name, car.Cylinders.getOrElse("Null"),
-                                                      car.Horsepower.getOrElse("Null")))
-
+    val sinkCarDataStream = sinkCarStream.map(car => (car.Name, car.Cylinders.orNull,
+                                                      car.Horsepower.orNull))
     //Open Cassandra connection and Sinking car data into cassandraDB.
     CassandraSink.addSink(sinkCarDataStream)
       .setHost("127.0.0.1")
